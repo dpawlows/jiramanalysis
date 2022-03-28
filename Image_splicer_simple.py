@@ -12,6 +12,11 @@ img1 = cv2.imread('data/north_c1.png')
 img2 = cv2.imread('data/north_c2.png') 
 result = stitcher.stitch(img1, img2)
 
+if result[0] != 0:
+    print("Stitcher error: {}".format(result[0]))
+    print("Exiting...")
+    exit(1)
+          
 
 cv2.imwrite('plot.png', result[1])
  
